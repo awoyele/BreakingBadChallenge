@@ -12,17 +12,18 @@
     import character from './Character'
     export default {
         name: "Actors",
-        components:[character],
-        data:()=>({'characters':[]}),
+        props:["characters"],
+        components:{character},
+        // data:()=>({'characters':[]}),
         methods:{
-            getCharacters: function(){
-                axios.get('/api/characters')
-                    .then(res => this.characters = res.data)
-            }
+            // getCharacters: function(){
+            //     axios.get('/api/characters')
+            //         .then(res => this.characters = res.data)
+            // }
         },
-        mounted(){
-            this.getCharacters();
-        }
+        // mounted(){
+        //     this.getCharacters();
+        // }
     }
 </script>
 

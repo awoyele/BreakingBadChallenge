@@ -2,8 +2,7 @@
 @extends("layouts.index")
 
 @section("content")
-    <Filters></Filters>
-    <Actors></Actors>
+    <Home :characters="{{$characters}}" :seasons="{!!collect($seasons)!!}"></Home>
 
 @endsection
 

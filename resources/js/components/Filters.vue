@@ -6,12 +6,13 @@
                     <div class="card-header">Search & Filter</div>
 
                     <div class="card-body">
+                        <input class="form-control" name="search" @input="$emit('search',$event)" placeholder="Search for a character"/>
                         Shows:
-                        <button class="btn btn-primary my-3" @click="changeShow(1)">Breaking Bad </button>
-                        <button class="btn btn-primary my-3" @click="changeShow(2)">Better Call Saul</button>
+                        <button class="btn btn-primary my-3" @click="$emit('changeShow',1)">Breaking Bad </button>
+                        <button class="btn btn-primary my-3" @click="$emit('changeShow',2)">Better Call Saul</button>
                         <hr></hr>
                         Seasons:
-                        <button class="btn btn-primary my-3" @click="changeSeason(1)">Season 1</button>
+                        <button v-if="seasons" v-for="season in seasons" class="btn btn-primary my-3 mx-1" @click="$emit('changeSeason',season)">Season {{season}}</button>
                     </div>
                 </div>
             </div>
@@ -22,10 +23,10 @@
 <script>
     export default {
         name: "Filters",
+        props:["seasons"],
         data(){
             return {
-                show:1,
-                season:["*"]
+                show:1
             }
         }
     }
